@@ -34,7 +34,7 @@ export default function HomeScreen({navigation}) {
           <Text style={{fontSize: 18, fontWeight: 'bold'}}>
             Hello Moospspcxz
           </Text>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
           <ImageBackground
             source={require('../assets/images/userprofile.jpg')}
             style={{width: 35, height: 35}}
