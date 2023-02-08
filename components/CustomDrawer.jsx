@@ -8,6 +8,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5'
 const CustomDrawer = (props) => {
     return (
         <View style={{ flex: 1 }}>
+
+            {/*This is the header of the Drawer */}
             <DrawerContentScrollView {...props} contentContainerStyle={{ backgroundColor: '#8200d6' }}>
                 <ImageBackground source={require('../assets/images/menu-bg.jpeg')} style={{ padding: 20 }}>
                     <Image source={require('../assets/images/userprofile.jpg')} style={{ height: 80, width: 80, borderRadius: 40, marginBottom: 10 }} />
@@ -20,12 +22,10 @@ const CustomDrawer = (props) => {
                 <View style={{ flex: 1, backgroundColor: '#fff', paddingTop: 10 }}>
                     <DrawerItemList {...props} />
                 </View>
-
-
-
-
-
             </DrawerContentScrollView>
+
+
+            {/*This is for the bottom text*/}
             <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: '#ccc' }}>
                 <TouchableOpacity onPress={() => { }} style={{ paddingVertical: 15 }}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
