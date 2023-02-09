@@ -7,7 +7,9 @@ export default function InputField({
     inputType,
     keyboardType,
     fieldButtonLabel,
-    fieldButtonFunction
+    fieldButtonFunction,
+    value,
+    onChangeText
 }) {
     return (
         <View style={{
@@ -24,6 +26,8 @@ export default function InputField({
                         keyboardType={keyboardType}
                         style={{ flex: 1, paddingVertical: 0 }}
                         secureTextEntry={true}
+                        value={value}
+                        onChangeText={onChangeText}
                     />
                 ) : (
                     <TextInput

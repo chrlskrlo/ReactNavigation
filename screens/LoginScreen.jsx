@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
 
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -9,11 +9,17 @@ import LoginSVG from '../assets/images/misc/login.svg'
 import GoogleSVG from '../assets/images/misc/google.svg'
 import FacebookSVG from '../assets/images/misc/facebook.svg'
 import TwitterSVG from '../assets/images/misc/twitter.svg'
+
 import CustomButton from '../components/CustomButton'
 import InputField from '../components/InputField'
 
+import { AuthContext } from '../context/AuthContext'
 
-const LoginScreen = ({ navigation }) => {
+
+const LoginScreen = ({ navigation, }) => {
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const { login } = useContext(AuthContext);
     return (
         <View style={{ flex: 1, justifyContent: 'center' }}>
             <View style={{ paddingHorizontal: 25 }}>
@@ -28,6 +34,7 @@ const LoginScreen = ({ navigation }) => {
                 }}>
                     Login</Text>
 
+
                 <InputField label={'Email ID'} icon={
                     <MaterialIcons name='alternate-email'
                         size={20}
@@ -35,6 +42,8 @@ const LoginScreen = ({ navigation }) => {
                         style={{ marginRight: 5, marginTop: 5 }} />
                 }
                     keyboardType='email-address'
+                    value={email}
+                    onChangeText={text => setEmail(text)}
                 />
 
                 <InputField label={'Password'} icon={
@@ -45,11 +54,13 @@ const LoginScreen = ({ navigation }) => {
                 }
                     inputType='password'
                     fieldButtonLabel={"Forgot?"}
-                    fieldButtonFunction={() => {}}
+                    fieldButtonFunction={() => { }}
+                    value={password}
+                    onChangeText={text => setPassword(text)}
                 />
 
 
-                <CustomButton label={'Login'} onPress={() => { }} />
+                <CustomButton label={'Login'} onPress={() => { login(email, password) }} />
 
                 <Text style={{
                     textAlign: 'center',
